@@ -31,15 +31,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  firebase_auth: ^4.3.0
+  cloud_firestore: ^4.4.5
+  firebase_core: ^2.8.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  shared_preferences: ^2.0.18
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.12.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/appicon.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -58,9 +67,9 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/profileicon.png
     - assets/images/icon1.png
     - assets/images/icon2.png
     - assets/images/icon3.png
@@ -87,6 +96,11 @@ flutter:
     - family: Albert
       fonts:
         - asset: assets/fonts/AlbertSans-Light.ttf
+        - asset: assets/fonts/AlbertSans-Bold.ttf
+    - family: Monsterat
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

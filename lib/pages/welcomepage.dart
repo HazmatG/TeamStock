@@ -3,13 +3,15 @@ import 'package:teamstock/pages/founderloginpage.dart';
 import 'package:teamstock/pages/seekerloginpage.dart';
 import 'package:teamstock/pages/seekerregpage.dart';
 
+import '../const/colors.dart';
+
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 5,
-        backgroundColor: Color.fromRGBO(13, 108, 186, 1),
+        backgroundColor: pfFounderCol,
         centerTitle: true,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -97,7 +99,7 @@ class WelcomePage extends StatelessWidget {
                 },
                 child: Text('Login', style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue[800],
+                  backgroundColor: pfFounderCol,
                   padding: EdgeInsets.symmetric(horizontal: 45, vertical: 18),
                 )),
           ),
@@ -126,7 +128,7 @@ class WelcomePage extends StatelessWidget {
             child: Text(
               'For Seekers:',
               style: TextStyle(
-                  color: Colors.green[700],
+                  color: pfSeekerCol,
                   fontSize: 25,
                   fontWeight: FontWeight.w500),
             ),
@@ -147,7 +149,7 @@ class WelcomePage extends StatelessWidget {
                 },
                 child: Text('Login', style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green[700],
+                  backgroundColor: pfSeekerCol,
                   padding: EdgeInsets.symmetric(horizontal: 45, vertical: 18),
                 )),
           ),

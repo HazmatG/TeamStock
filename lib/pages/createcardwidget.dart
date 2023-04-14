@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teamstock/pages/profilepage.dart';
+import '../const/colors.dart';
 import '../utils/user.dart';
 
 import '../utils/user_settings.dart';
@@ -12,27 +13,13 @@ class CreateCardWidget extends StatefulWidget {
 }
 
 class _CreateCardWidgetState extends State<CreateCardWidget> {
-  // late final TextEditingController namecontroller;
-  // late final TextEditingController pronamecontroller;
-  // late final TextEditingController speccontroller;
-  // late final TextEditingController emailcontroller;
-  // late final TextEditingController biocontroller;
-  // late final TextEditingController loccontroller;
-  // User myuser = UserSettings.myUser;
 
   int _prtnum = 1;
   int _prtadd = 1;
+
+  TextEditingController _titlecont = TextEditingController();
+  TextEditingController _desccont = TextEditingController();
   @override
-  // void initState() {
-  //   super.initState();
-  //
-  //   namecontroller = TextEditingController(text: myuser.name);
-  //   pronamecontroller = TextEditingController(text: myuser.proname);
-  //   speccontroller = TextEditingController(text: myuser.proffes);
-  //   emailcontroller = TextEditingController(text: myuser.email);
-  //   biocontroller = TextEditingController(text: myuser.bio);
-  //   loccontroller = TextEditingController(text: myuser.loc);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +33,7 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
           SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-            child: TextField(
+            child: TextFormField(
               // onChanged: (name) => myuser = myuser.copy(name: name),
               // controller: namecontroller,
               decoration: InputDecoration(
@@ -56,7 +43,7 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-            child: TextField(
+            child: TextFormField(
               // onChanged: (bio) => myuser = myuser.copy(bio: bio),
               // controller: biocontroller,
               maxLines: 4,
@@ -67,20 +54,19 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
             ),
           ),
           buildParty(),
-          Align(alignment: Alignment(-0.9, 0), child: ElevatedButton(
+          Align(alignment: Alignment(-0.9, 0), child: OutlinedButton(
               onPressed: () {
               },
-              child: Text('+ Add Participant', style: TextStyle(fontSize: 12, color: Colors.black)),
-              style: ElevatedButton.styleFrom(
+              child: Text('+ Add Participant', style: TextStyle(fontSize: 14, color: Colors.black)),
+              style: OutlinedButton.styleFrom(
                 elevation: 0.0,
-                backgroundColor: Colors.grey[50],
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
               )),),
           Align(alignment: Alignment(-0.9, 0), child: ElevatedButton(
               onPressed: () {},
               child: Text('Set Color', style: TextStyle(fontSize: 12)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green[700],
+                backgroundColor: pfSeekerCol,
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
               )),),
           SizedBox(height: 20),
@@ -90,7 +76,7 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
               },
               child: Text('Create Board', style: TextStyle(fontSize: 16)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green[700],
+                backgroundColor: pfSeekerCol,
                 padding: EdgeInsets.symmetric(horizontal: 45, vertical: 18),
               )),
           TextButton(onPressed: () {
@@ -120,7 +106,7 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
               child: Text('$_prtnum'),
             ),
             Expanded(
-              child: TextField(
+              child: TextFormField(
                 // onChanged: (name) => myuser = myuser.copy(name: name),
                 // controller: namecontroller,
                   decoration: InputDecoration(
@@ -138,7 +124,7 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(5), bottomLeft: Radius.circular(5))
                 ),
                 alignment: Alignment.center,
-                backgroundColor: Colors.green[700],
+                backgroundColor: pfSeekerCol,
                 minimumSize: Size(34, 10),
                 padding: EdgeInsets.symmetric(vertical: 22, horizontal: 5)
             ),),
@@ -159,7 +145,7 @@ class _CreateCardWidgetState extends State<CreateCardWidget> {
                 ),
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 alignment: Alignment.center,
-                backgroundColor: Colors.green[700],
+                backgroundColor: pfSeekerCol,
                 minimumSize: Size(34, 10),
                 padding: EdgeInsets.symmetric(vertical: 22, horizontal: 5)
             ),)

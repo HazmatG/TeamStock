@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:teamstock/pages/homepage.dart';
 import 'package:teamstock/services/auth.dart';
 
+import '../const/colors.dart';
+
 class SeekerLoginPage extends StatefulWidget {
   const SeekerLoginPage({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
   bool _keeplogged = false;
   @override
   Widget build(BuildContext context) {
-    var _primcolor = Color.fromRGBO(0, 102, 0, 1);
+    var _primcolor = pfSeekerCol;
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -27,7 +29,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         toolbarHeight: 70,
-        backgroundColor: Colors.green[600],
+        backgroundColor: pfSeekerCol,
         title: Text('TeamStock', style: TextStyle(fontFamily: 'Maxwell', fontSize: 30, fontWeight: FontWeight.bold)),
       ),
       body: Form(
@@ -59,7 +61,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
                 decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.email_rounded,
-                      color: Colors.green[600],
+                      color: pfSeekerCol
                     ),
                     hintText: 'Enter your email...',
                     labelText: 'Email',
@@ -77,7 +79,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
                 decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.password_outlined,
-                      color: Colors.green[600],
+                      color: pfSeekerCol
                     ),
                     hintText: 'Enter password',
                     labelText: 'Password',
@@ -116,7 +118,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
                 },
                 child: Text('Login', style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green[800],
+                  backgroundColor: pfSeekerCol,
                   padding: EdgeInsets.symmetric(horizontal: 45, vertical: 18),
                 )),
             SizedBox(height: 10),

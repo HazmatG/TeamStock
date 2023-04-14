@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:teamstock/pages/homepage.dart';
 
+import '../const/colors.dart';
+
 class FounderLoginPage extends StatefulWidget {
   const FounderLoginPage({Key? key}) : super(key: key);
 
@@ -12,7 +14,7 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
   bool _keeplogged = false;
   @override
   Widget build(BuildContext context) {
-    var _primcolor = Color.fromRGBO(51, 153, 255, 1);
+    var _primcolor = pfFounderCol;
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
@@ -20,7 +22,7 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         toolbarHeight: 70,
-        backgroundColor: Colors.blue[800],
+        backgroundColor: pfFounderCol,
         title: Text('TeamStock', style: TextStyle(fontFamily: 'Maxwell', fontSize: 30, fontWeight: FontWeight.bold)),
       ),
       body: Column(
@@ -46,7 +48,7 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.email_rounded,
-                    color: Colors.blue[800]
+                    color: pfFounderCol
                   ),
                   hintText: 'Enter your email...',
                   labelText: 'Email',
@@ -60,7 +62,7 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.password_outlined,
-                    color: Colors.blue[800]
+                    color: pfFounderCol
                   ),
                   hintText: 'Enter password',
                   labelText: 'Password',
@@ -99,7 +101,7 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
               },
               child: Text('Login', style: TextStyle(fontSize: 16)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue[800],
+                backgroundColor: pfFounderCol,
                 padding: EdgeInsets.symmetric(horizontal: 55, vertical: 20),
               )),
           Padding(

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:teamstock/pages/createcardwidget.dart';
 import 'package:teamstock/pages/profilepage.dart';
 
+import '../const/colors.dart';
+import '../utils/cardwidgets.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -14,22 +17,10 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // appbar color
+    bool isFounder = false;
+
     return Scaffold(
-      floatingActionButton: Container(
-        decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-                color: Colors.green, width: 1.5, style: BorderStyle.solid)),
-        height: 70,
-        width: 70,
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateCardWidget()));
-          },
-          backgroundColor: Colors.green[600],
-          child: Icon(Icons.add),
-        ),
-      ),
       backgroundColor: Colors.grey[50],
       bottomNavigationBar: SizedBox(
         height: 70,
@@ -42,7 +33,7 @@ class HomePageState extends State<HomePage> {
             BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Team'),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'People',
+              label: 'Profile',
             ),
           ],
         ),
@@ -50,7 +41,7 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 5,
-        backgroundColor: Colors.green[700],
+        backgroundColor: isFounder ? pfFounderCol : pfSeekerCol,
         centerTitle: true,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -99,148 +90,92 @@ class HomePageState extends State<HomePage> {
               ],
             )),
       ),
-      body: ListView(
-        children: [
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: 'Search For',
+      body: Stack(children: [
+        ListView(
+          children: [
+            SizedBox(height: 35),
+            searchBox(),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CategoriesWidget(ctgname: 'Mobile-App'),
+                  CategoriesWidget(ctgname: 'GameDev'),
+                  CategoriesWidget(ctgname: 'WebSite'),
+                  CategoriesWidget(ctgname: 'Illustration'),
+                  CategoriesWidget(ctgname: 'Movie'),
+                  CategoriesWidget(ctgname: 'Food'),
+                  CategoriesWidget(ctgname: 'Technics'),
+                  CategoriesWidget(ctgname: 'Music'),
+                ],
               ),
             ),
-          ),
-          SizedBox(height: 15),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                CategoriesWidget(ctgname: 'Mobile-Apps'),
-                CategoriesWidget(ctgname: 'GameDev'),
-                CategoriesWidget(ctgname: 'WebSite'),
-                CategoriesWidget(ctgname: 'Illustration'),
-                CategoriesWidget(ctgname: 'Movie'),
-                CategoriesWidget(ctgname: 'Food'),
-                CategoriesWidget(ctgname: 'Technics'),
-                CategoriesWidget(ctgname: 'Music'),
-              ],
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Newest Flows:',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  IconButton(
-                    icon: Icon(Icons.filter_list),
-                    onPressed: () {},
-                  ),
-                ],
+            Padding(
+                padding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Newest Flows:',
+                      style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold)),
+                )),
+            CardWidget(
+                pcolor: tdOrange,
+                ptext: 'I need team for First Person Shooter',
+                paccount: 'gamedev21',
+                pdate: 'February 12, 2023, 21:00',
+                peoplein: 2),
+            CardWidget(
+                pcolor: tdGreen,
+                ptext: 'I need team for my WebSite',
+                paccount: 'webguy009',
+                pdate: 'February 12, 2023, 18:00',
+                peoplein: 4),
+            CardWidget(
+                pcolor: tdPurple,
+                ptext: 'I need team for my Comics',
+                paccount: 'jackie21',
+                pdate: 'February 12, 2023, 18:00',
+                peoplein: 1),
+            CardWidget(
+                pcolor: tdBlue,
+                ptext: 'I need drummer for my rock-band',
+                paccount: 'wombat23',
+                pdate: 'February 12, 2023, 18:00',
+                peoplein: 2),
+            CardWidget(
+                pcolor: tdYellow,
+                ptext: 'I need team to for my Start-Up',
+                paccount: 'skywalk12',
+                pdate: 'February 22, 2023, 18:00',
+                peoplein: 3),
+            CardWidget(
+                pcolor: tdRed,
+                ptext: 'I need cook to for my Cafe',
+                paccount: 'coolcook112',
+                pdate: 'February 26, 2023, 18:00',
+                peoplein: 1),
+          ],
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Container(
+              margin: EdgeInsets.only(bottom: 20, right: 20),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => CreateCardWidget()));
+                },
+                child: Text('+', style: TextStyle(fontSize: 40)),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: tdGreen,
+                    minimumSize: Size(70, 70),
+                    elevation: 10),
               )),
-          CardWidget(
-              pcolor: Colors.orangeAccent,
-              ptext: 'I need team for First Person Shooter',
-              paccount: 'gamedev21',
-              pdate: 'February 12, 2023, 21:00',
-              peoplein: 2),
-          CardWidget(
-              pcolor: Colors.green[700],
-              ptext: 'I need team for my WebSite',
-              paccount: 'webguy009',
-              pdate: 'February 12, 2023, 18:00',
-              peoplein: 4),
-          CardWidget(
-              pcolor: Colors.purple[700],
-              ptext: 'I need team for my Comics',
-              paccount: 'jackie21',
-              pdate: 'February 12, 2023, 18:00',
-              peoplein: 1),
-          CardWidget(
-              pcolor: Colors.blueGrey,
-              ptext: 'I need drummer for my rock-band',
-              paccount: 'wombat23',
-              pdate: 'February 12, 2023, 18:00',
-              peoplein: 2),
-          CardWidget(
-              pcolor: Colors.yellow[700],
-              ptext: 'I need team to for my Start-Up',
-              paccount: 'skywalk12',
-              pdate: 'February 22, 2023, 18:00',
-              peoplein: 3),
-          CardWidget(
-              pcolor: Colors.red[700],
-              ptext: 'I need cook to for my Cafe',
-              paccount: 'coolcook112',
-              pdate: 'February 26, 2023, 18:00',
-              peoplein: 1),
-        ],
-      ),
+        )
+      ]),
     );
-  }
-
-  Widget CardWidget({pcolor, ptext, paccount, pdate, peoplein}) {
-    return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-        child: Container(
-          height: 75,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 4),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                      padding: EdgeInsets.only(left: 0)),
-                  child: Text(ptext,
-                      style: TextStyle(
-                          color: Colors.grey[200],
-                          fontSize: 16.8,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Albert',
-                          shadows: <Shadow>[
-                            Shadow(offset: Offset(2, 0), color: Colors.black26)
-                          ])),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      pdate,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Albert',
-                          fontSize: 14,
-                          shadows: <Shadow>[
-                            Shadow(
-                                offset: Offset(1.3, 0), color: Colors.black26)
-                          ]),
-                    ),
-                    Text(
-                      '@$paccount',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontFamily: 'Albert',
-                          shadows: <Shadow>[
-                            Shadow(offset: Offset(2, 0), color: Colors.black26)
-                          ]),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            border: Border.all(width: 1, color: Colors.black12),
-            color: pcolor,
-          ),
-        ));
   }
 
   Widget CategoriesWidget({ctgname}) {
@@ -281,5 +216,52 @@ class HomePageState extends State<HomePage> {
           break;
       }
     });
+  }
+}
+
+class searchBox extends StatelessWidget {
+  const searchBox
+
+  ({
+  super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children:  [ Flexible(
+        child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: TextField(
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(0),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: txtBlack,
+                    size: 20,
+                  ),
+                  prefixIconConstraints: BoxConstraints(
+                      maxHeight: 20, minWidth: 22),
+                  border: InputBorder.none,
+                  hintText: 'Search',
+                  hintStyle: TextStyle(color: txtBlack)),
+            )
+        ),
+      ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: IconButton(
+            icon: Icon(Icons.filter_list),
+            onPressed: () {},
+          ),
+        ),
+    ]
+    );
   }
 }

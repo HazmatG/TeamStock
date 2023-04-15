@@ -1,14 +1,12 @@
-# teamstock
+# TeamStock
 
-A new Flutter project.
+TeamStock is new app for searching team and work for your start-ups.
 
-## Getting Started
-
-## Sample Images of UI Screen (NOT FINAL)
+### Sample Images of UI Screen (NOT FINAL)
 <p float="left" align="middle">
-<img src="templateimages/sc_1.png" width="240" height="460">
-<img src="templateimages/sc_2.png" width="240" height="460">
-<img src="templateimages/sc_3.png" width="240" height="460">
-<img src="templateimages/sc_4.png" width="240" height="460">
-<img src="templateimages/sc_5.png" width="240" height="460">
+<img src="templateimages/sc_1.png" width="190" height="420">
+<img src="templateimages/sc_2.png" width="190" height="420">
+<img src="templateimages/sc_3.png" width="190" height="420">
+<img src="templateimages/sc_4.png" width="190" height="420">
+<img src="templateimages/sc_5.png" width="190" height="420">
 </p>

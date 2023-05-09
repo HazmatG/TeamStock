@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:teamstock/const/textconst.dart';
 
 class CardWidget extends StatelessWidget {
+  final NTText ntText;
+
   const CardWidget({
     Key? key,
-    required this.pcolor,
-    required this.ptext,
-    required this.paccount,
-    required this.pdate,
-    required this.peoplein,
+    required this.ntText
   }) : super(key: key);
 
-  final Color? pcolor;
-  final String ptext;
-  final String paccount;
-  final String pdate;
-  final int peoplein;
-
   Widget CardWid() {
+    String now = DateFormat("dd-MM-yyyy").format(DateTime.now());
+
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         child: Container(
@@ -30,7 +26,7 @@ class CardWidget extends StatelessWidget {
                   onPressed: () {},
                   style: TextButton.styleFrom(
                       padding: EdgeInsets.only(left: 0)),
-                  child: Text("$ptext",
+                  child: Text("${ntText.ptitle!}",
                       style: TextStyle(
                           color: Colors.grey[200],
                           fontSize: 16.8,
@@ -44,7 +40,7 @@ class CardWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "$pdate",
+                      "${now}",
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Albert',
@@ -55,7 +51,7 @@ class CardWidget extends StatelessWidget {
                           ]),
                     ),
                     Text(
-                      '@$paccount',
+                      '@${ntText.paccount!}',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -72,7 +68,7 @@ class CardWidget extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
             border: Border.all(width: 1, color: Colors.black12),
-            color: pcolor,
+            color: ntText.pcolor!,
           ),
         ));
   }

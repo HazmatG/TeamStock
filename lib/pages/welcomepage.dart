@@ -4,6 +4,7 @@ import 'package:teamstock/pages/seekerloginpage.dart';
 import 'package:teamstock/pages/seekerregpage.dart';
 
 import '../const/colors.dart';
+import 'founderregpage.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -120,7 +121,10 @@ class WelcomePage extends StatelessWidget {
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FounderRegisterPage()));
+                },
               )),
           SizedBox(height: 22),
           Padding(

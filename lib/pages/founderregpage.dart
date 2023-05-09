@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:teamstock/services/auth.dart';
 import 'package:teamstock/pages/homepage.dart';
 
-class SeekerRegisterPage extends StatefulWidget {
-  const SeekerRegisterPage({Key? key}) : super(key: key);
+import '../const/colors.dart';
+
+class FounderRegisterPage extends StatefulWidget {
+  const FounderRegisterPage({Key? key}) : super(key: key);
 
   @override
-  _SeekerRegisterPageState createState() => _SeekerRegisterPageState();
+  _FounderRegisterPageState createState() => _FounderRegisterPageState();
 }
 
-class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
+class _FounderRegisterPageState extends State<FounderRegisterPage> {
   final AuthService _authService = AuthService();
 
   String _seekeremail = '';
@@ -55,7 +57,7 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                           fontFamily: 'Maxwell',
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
-                          color: Colors.green[300])),
+                          color: tdBlue)),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -63,8 +65,8 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                   width: 340,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/images/team.jpg'))),
+                          fit: BoxFit.fill,
+                          image: AssetImage('assets/images/leader.png'))),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -78,10 +80,10 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                           decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.people,
-                                color: Colors.green[600],
+                                color: pfFounderCol
                               ),
                               hintText: 'Enter your real name',
-                              labelText: 'Real Name',
+                              labelText: 'Company Name',
                               border: OutlineInputBorder()),
                           validator: (value) {
                             if (value == null || value.isEmpty)
@@ -97,7 +99,7 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                           decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.person,
-                                color: Colors.green[600],
+                                color: pfFounderCol,
                               ),
                               hintText: 'lowercase',
                               prefixText: '@',
@@ -121,7 +123,7 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.email_rounded,
-                          color: Colors.green[600],
+                          color: pfFounderCol
                         ),
                         hintText: 'Enter your email...',
                         labelText: 'Email',
@@ -142,7 +144,7 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                       decoration: InputDecoration(
                           prefixIcon: Icon(
                             Icons.password_outlined,
-                            color: Colors.green[600],
+                            color: pfFounderCol
                           ),
                           hintText: 'Enter password',
                           labelText: 'Password',
@@ -162,7 +164,7 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.password_outlined,
-                          color: Colors.green[600],
+                          color: pfFounderCol
                         ),
                         hintText: 'Confirm Password',
                         labelText: 'Confirm Password',
@@ -186,22 +188,22 @@ class _SeekerRegisterPageState extends State<SeekerRegisterPage> {
                       if (_formkey.currentState!.validate()) {
                         FirebaseAuth.instance
                             .createUserWithEmailAndPassword(
-                                email: _emailController.text,
-                                password: _passwordController.text)
+                            email: _emailController.text,
+                            password: _passwordController.text)
                             .then((value) {
                           Navigator.of(context)
                               .push(MaterialPageRoute(
-                                  builder: (context) => HomePage(isFounder: false,)))
+                              builder: (context) => HomePage(isFounder: true)))
                               .onError((error, stackTrace) =>
-                                  print('Error ${error.toString()}'));
+                              print('Error ${error.toString()}'));
                         });
                       }
                     },
                     child: Text('Register', style: TextStyle(fontSize: 16)),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green[800],
+                      backgroundColor: pfFounderCol,
                       padding:
-                          EdgeInsets.symmetric(horizontal: 45, vertical: 18),
+                      EdgeInsets.symmetric(horizontal: 45, vertical: 18),
                     )),
                 SizedBox(height: 7),
                 Center(

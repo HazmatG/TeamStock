@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:teamstock/pages/homepage.dart';
 import 'package:teamstock/services/auth.dart';
@@ -19,6 +20,16 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
   String _seekerpassw = '';
 
   bool _keeplogged = false;
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     var _primcolor = pfSeekerCol;
@@ -53,6 +64,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
+                controller: _emailController,
                 onChanged: (value) {
                   setState(() {
                     _seekeremail = value;
@@ -76,6 +88,7 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
                 onChanged: (value) {
                   _seekerpassw = value;
                 },
+                controller: _passwordController,
                 decoration: InputDecoration(
                     prefixIcon: Icon(
                       Icons.password_outlined,
@@ -113,8 +126,11 @@ class _SeekerLoginPageState extends State<SeekerLoginPage> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HomePage()));
+                  FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: _emailController.text, password: _passwordController.text).then((value) =>
+                      Navigator.of(context)
+                      .push(MaterialPageRoute(
+                      builder: (context) => HomePage(isFounder: false))));
                 },
                 child: Text('Login', style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(

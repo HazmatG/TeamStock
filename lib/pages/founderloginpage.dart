@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:teamstock/pages/homepage.dart';
 
@@ -12,6 +13,16 @@ class FounderLoginPage extends StatefulWidget {
 
 class _FounderLoginPageState extends State<FounderLoginPage> {
   bool _keeplogged = false;
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var _primcolor = pfFounderCol;
@@ -45,6 +56,7 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.email_rounded,
@@ -59,6 +71,8 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextFormField(
+              obscureText: true,
+              controller: _passwordController,
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.password_outlined,
@@ -96,8 +110,11 @@ class _FounderLoginPageState extends State<FounderLoginPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => HomePage()));
+                FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: _emailController.text, password: _passwordController.text).then((value) =>
+                    Navigator.of(context)
+                    .push(MaterialPageRoute(
+                    builder: (context) => HomePage(isFounder: true))));
               },
               child: Text('Login', style: TextStyle(fontSize: 16)),
               style: ElevatedButton.styleFrom(

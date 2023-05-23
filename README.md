@@ -2,10 +2,10 @@
 
 TeamStock is new app for searching team and work for your start-ups.
 
-# Front-end
+## Front-end
 Flutter/Dart
 
-# Back-end
+## Back-end
 Firebase
 
 ### Sample Images of UI Screen (NOT FINAL)

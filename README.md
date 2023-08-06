@@ -1,6 +1,7 @@
 # TeamStock
 
-TeamStock is new app for searching team and work for your start-ups.
+TeamStock is new app for searching team and work for your start-ups. 
+Used Domain Driven Design structure
 
 ## Front-end
 Flutter/Dart

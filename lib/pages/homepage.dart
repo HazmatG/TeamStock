@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:teamstock/const/textconst.dart';
 import 'package:teamstock/pages/createcardwidget.dart';
 import 'package:teamstock/pages/profilepage.dart';
-
-import '../const/colors.dart';
+import 'package:teamstock/utils/const/colors.dart';
+import 'package:teamstock/utils/const/textconst.dart';
 import '../utils/cardwidgets.dart';
 
 class HomePage extends StatefulWidget {

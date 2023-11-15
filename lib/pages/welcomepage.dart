@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:teamstock/pages/founderloginpage.dart';
 import 'package:teamstock/pages/seekerloginpage.dart';
 import 'package:teamstock/pages/seekerregpage.dart';
-
-import '../const/colors.dart';
+import 'package:teamstock/utils/const/colors.dart';
+import 'package:teamstock/utils/const/presentation_text_const.dart';
 import 'founderregpage.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -36,7 +37,7 @@ class WelcomePage extends StatelessWidget {
                               //     fit: BoxFit.cover,
                               color: Colors.white),
                         )),
-                    Text('TeamStock',
+                    Text(PresentationTextConst.appname,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 28,
@@ -87,7 +88,7 @@ class WelcomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 5),
             child: Text(
-              'I am a leader in search for like-minded people for my Start-Up', textAlign: TextAlign.center,
+              PresentationTextConst.loginforfounders, textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 20, fontFamily: 'Albert'),
             ),
           ),
@@ -95,8 +96,9 @@ class WelcomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => FounderLoginPage()));
+                  Get.toNamed('/foumdlogpage');
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (context) => FounderLoginPage()));
                 },
                 child: Text('Login', style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
@@ -122,8 +124,9 @@ class WelcomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => FounderRegisterPage()));
+                  Get.toNamed('/foumdregpage');
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (context) => FounderRegisterPage()));
                 },
               )),
           SizedBox(height: 22),
@@ -140,7 +143,7 @@ class WelcomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
-              'I am a person who wants to get work experience and take part in interesting projects', textAlign: TextAlign.center,
+              PresentationTextConst.loginforseekers, textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black, fontSize: 20, fontFamily: 'Albert'),
             ),
           ),
@@ -148,8 +151,9 @@ class WelcomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SeekerLoginPage()));
+                  Get.toNamed('/seeklogpage');
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (context) => SeekerLoginPage()));
                 },
                 child: Text('Login', style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
@@ -175,8 +179,9 @@ class WelcomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SeekerRegisterPage()));
+                    Get.toNamed('/seekregpage');
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //     builder: (context) => SeekerRegisterPage()));
                   })),
         ],
       ),

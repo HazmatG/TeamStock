@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teamstock/presentation/ui/pages/seekerloginpage.dart';
 import 'package:teamstock/presentation/ui/pages/seekerregpage.dart';
-import '../../../const/colors.dart';
+import 'package:teamstock/utils/const/colors.dart';
 import 'founderloginpage.dart';
 import 'founderregpage.dart';
 

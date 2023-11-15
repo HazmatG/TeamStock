@@ -39,6 +39,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.18
+  flutter_colorpicker: ^1.0.3
+  intl: ^0.18.1
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:
@@ -69,13 +72,7 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/profileicon.png
-    - assets/images/icon1.png
-    - assets/images/icon2.png
-    - assets/images/icon3.png
-    - assets/images/icon4.png
-    - assets/images/team.jpg
-    - assets/images/leader.png
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -96,11 +93,6 @@ flutter:
     - family: Albert
       fonts:
         - asset: assets/fonts/AlbertSans-Light.ttf
-        - asset: assets/fonts/AlbertSans-Bold.ttf
-    - family: Monsterat
-      fonts:
-        - asset: assets/fonts/Montserrat-Bold.ttf
-        - asset: assets/fonts/Montserrat-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

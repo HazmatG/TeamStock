@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:teamstock/pages/homepage.dart';
 import 'package:teamstock/pages/profilepage.dart';
-import '../const/colors.dart';
-import '../const/textconst.dart';
+import 'package:teamstock/utils/const/colors.dart';
+import 'package:teamstock/utils/const/textconst.dart';
 import '../utils/user.dart';
 
 import '../utils/user_settings.dart';

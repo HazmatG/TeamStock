@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:teamstock/pages/editprofilepage.dart';
-import 'package:teamstock/pages/homepage.dart';
 import 'package:teamstock/utils/user_settings.dart';
 
 import '../utils/user.dart';
@@ -63,13 +62,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(width: 30),
                 Column(
                   children: [
-                    buildName(myuser),
+                    buildName(myuser as User),
                   ],
                 ),
               ],
             ),
             SizedBox(height: 6),
-            buildSpecs(myuser),
+            buildSpecs(myuser as User),
             SizedBox(height: 16),
             Container(
               decoration: BoxDecoration(
@@ -148,9 +147,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     style:
                         TextStyle(fontSize: 18, fontFamily: 'Albert'),
                   ),
-                  buildBio(myuser),
-                  buildLoc(myuser),
-                  buildEdu(myuser)
+                  buildBio(myuser as User),
+                  buildLoc(myuser as User),
+                  buildEdu(myuser as User)
                 ],
               ),
             ),

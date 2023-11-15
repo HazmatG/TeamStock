@@ -3,8 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:teamstock/services/auth.dart';
 import 'package:teamstock/pages/homepage.dart';
-
-import '../const/colors.dart';
+import 'package:teamstock/utils/const/colors.dart';
 
 class FounderRegisterPage extends StatefulWidget {
   const FounderRegisterPage({Key? key}) : super(key: key);

@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../../../const/colors.dart';
+import 'package:teamstock/utils/const/colors.dart';
 import 'homepage.dart';
 
 class FounderLoginPage extends StatefulWidget {

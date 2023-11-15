@@ -2,8 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:teamstock/pages/homepage.dart';
 import 'package:teamstock/services/auth.dart';
-
-import '../const/colors.dart';
+import 'package:teamstock/utils/const/colors.dart';
 
 class SeekerLoginPage extends StatefulWidget {
   const SeekerLoginPage({Key? key}) : super(key: key);

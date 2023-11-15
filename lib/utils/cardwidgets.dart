@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:teamstock/const/textconst.dart';
+import 'package:teamstock/utils/const/textconst.dart';
 
 class CardWidget extends StatelessWidget {
   final NTText ntText;

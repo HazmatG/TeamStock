@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "696054767614",
+    "project_id": "teamstock-61c52",
+    "storage_bucket": "teamstock-61c52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696054767614:android:5e08a2ee83c1ef68a9aaaf",
+        "android_client_info": {
+          "package_name": "com.example.teamstock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS_ae1aGWjb1yaTrLyAuZUov9BkwtopRk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

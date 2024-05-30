@@ -3,7 +3,7 @@ TeamStock is a online recruiting app that connects unemployed but inspired speci
 	This app allows users to create contacts, events, job-vacancies and interact with built-in messaging system.
 ![image](https://github.com/HazmatG/TeamStock/assets/72803057/59a96895-195e-482f-a86c-fe29030b5a49)
 
-# Used packages
+## Used packages
 Firebase Flutter, GetX
 
 ## Images

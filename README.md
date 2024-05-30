@@ -1,16 +1,12 @@
-# teamstock
+# Info
+TeamStock is a online recruiting app that connects unemployed but inspired specialists and newbie businessmen through social network abilities. 
+	This app allows users to create contacts, events, job-vacancies and interact with built-in messaging system.
+![image](https://github.com/HazmatG/TeamStock/assets/72803057/59a96895-195e-482f-a86c-fe29030b5a49)
 
-A new Flutter project.
+# Used packages
+Firebase Flutter, GetX
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Images
+<img src="templateimages/sc_1.png" width="240" height="460">
+<img src="templateimages/sc_2.png" width="240" height="460">
+<img src="templateimages/sc_5.png" width="240" height="460">

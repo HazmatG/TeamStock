@@ -23,7 +23,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
   bool isFounder = false;
 
   final _inactiveColor = Colors.grey;
-  final _activeColor = tdBlue;
+  final _activeColor = tdGreen;
 
   @override
   Widget build(BuildContext context) {

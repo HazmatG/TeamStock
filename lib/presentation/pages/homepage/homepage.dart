@@ -31,7 +31,7 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 5,
-        backgroundColor: widget.isFounder ? pfFounderCol : pfSeekerCol,
+        backgroundColor: widget.isFounder ? pfSeekerCol : pfFounderCol,
         centerTitle: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -77,19 +77,19 @@ class HomePageState extends State<HomePage> {
           const SizedBox(height: 35),
           const searchBox(),
           const SizedBox(height: 10),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                CategoriesWidget(ctgname: 'Mobile-App'),
-                CategoriesWidget(ctgname: 'GameDev'),
-                CategoriesWidget(ctgname: 'WebSite'),
-                CategoriesWidget(ctgname: 'Illustration'),
-                CategoriesWidget(ctgname: 'Movie'),
-                CategoriesWidget(ctgname: 'Food'),
-                CategoriesWidget(ctgname: 'Technics'),
-                CategoriesWidget(ctgname: 'Music'),
-              ],
+          Container(
+            margin: EdgeInsets.all(8),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CategoriesWidget(ctgname: 'Projects'),
+                  CategoriesWidget(ctgname: 'Events'),
+                  CategoriesWidget(ctgname: 'Articles'),
+                  CategoriesWidget(ctgname: 'Posts'),
+                  CategoriesWidget(ctgname: 'People'),
+                ],
+              ),
             ),
           ),
           //   const Padding(
@@ -145,7 +145,7 @@ class HomePageState extends State<HomePage> {
         child: FittedBox(
           child: FloatingActionButton(
               heroTag: "btn1",
-              backgroundColor: tdBlue,
+              backgroundColor: tdGreen,
               onPressed: () {
                 Get.toNamed('/cbpage');
               },
@@ -162,7 +162,7 @@ class HomePageState extends State<HomePage> {
   Widget CategoriesWidget({ctgname}) {
     Color ctgcolor = Colors.black12;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(5.0),
       child: InkWell(
         onTap: () {
           setState(() {
@@ -301,7 +301,7 @@ class _BoardWidgetState extends State<BoardWidget> {
                             setState(() {
                               isOnFavourites = !isOnFavourites;
                             });
-                          }, icon: isOnFavourites ? const Icon(Icons.turned_in_not, color: tdBlue,) : const Icon(Icons.turned_in, color: tdBlue,))
+                          }, icon: isOnFavourites ? const Icon(Icons.turned_in_not, color: tdGreen,) : const Icon(Icons.turned_in, color: tdBlue,))
                     ],
                   ),
                 ),

@@ -8,20 +8,29 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: tdGrey,
+      backgroundColor: tdWhite,
       body: ListView(
         children: [
           Container(
-            color: tdGreen,
-            height: 150,
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
+            color: pfSeekerCol,
+            height: 100,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CircleAvatar(backgroundImage: AssetImage('assets/images/app_icons/usericon.png'), radius: 30,),
-                      Text('Azatbek Ilichbekov', style: TextStyle(fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold)),
+                      const CircleAvatar(backgroundImage: AssetImage('assets/images/app_icons/usericon.png'), radius: 30,),
+                      const SizedBox(width: 10),
+                      const Text('@azimuth', style: TextStyle(fontSize: 22, color: Colors.white)),
+                      const SizedBox(width: 15),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                        child: const Text('Get Pro', style: TextStyle(color: Colors.white, fontSize: 16),),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: tdGreen
+                        ),
+                      )
                     ],
                   ),
               ),
@@ -30,7 +39,7 @@ class SettingsPage extends StatelessWidget {
           const SettingsButton(text: 'My Profile', icons: Icons.person_outline_outlined, pagetitle: '/profpage'),
           const SettingsButton(text: 'Contacts', icons: Icons.contacts_outlined, pagetitle: ''),
           const SettingsButton(text: 'Preferences', icons: Icons.settings_outlined, pagetitle: ''),
-          const SettingsButton(text: 'Upgrade to Pro', icons: Icons.upgrade, pagetitle: ''),
+          const SettingsButton(text: 'Log Out', icons: Icons.logout_outlined, pagetitle: '', textcolor: Colors.red,),
         ],
       ),
     );
@@ -41,12 +50,14 @@ class SettingsButton extends StatefulWidget {
   final String text;
   final String pagetitle;
   final IconData icons;
+  final Color textcolor;
 
   const SettingsButton({
     super.key,
     required this.text,
     required this.icons,
     required this.pagetitle,
+    this.textcolor = Colors.black,
   });
 
   @override
@@ -65,13 +76,12 @@ class _SettingsButtonState extends State<SettingsButton> {
         height: 60,
         decoration: const BoxDecoration(
             color: Colors.white,
-            border: Border(bottom: BorderSide(color: Color(0xFFE3E3E3), width: 2.0))
         ),
         child: Row(
           children: [
-            Icon(widget.icons, size: 45),
+            Icon(widget.icons, size: 45, color: widget.textcolor,),
             const SizedBox(width: 10),
-            Text(widget.text, style: const TextStyle(fontSize: 22)),
+            Text(widget.text, style: TextStyle(fontSize: 22, color: widget.textcolor)),
           ],
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../data/const/colors.dart';
 import '../homepage/homepage.dart';
@@ -174,7 +176,7 @@ class _FounderRegisterPageState extends State<FounderRegisterPage> {
                       else if (value.length < 8)
                         return 'minimum 8 characters required';
                       else if (value != _passwordController.text)
-                        return 'Password do not match';
+                        return 'Passwords do not match';
                     },
                   ),
                 ),
@@ -190,10 +192,8 @@ class _FounderRegisterPageState extends State<FounderRegisterPage> {
                             email: _emailController.text,
                             password: _passwordController.text)
                             .then((value) {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(
-                              builder: (context) => HomePage(isFounder: true)))
-                              .onError((error, stackTrace) =>
+                          Get.toNamed('/dashboard', arguments: {"isFounder": true})
+                              ?.onError((error, stackTrace) =>
                               print('Error ${error.toString()}'));
                         });
                       }

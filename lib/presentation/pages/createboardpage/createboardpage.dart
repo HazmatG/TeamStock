@@ -14,7 +14,7 @@ class _CreateCardWidgetState extends State<CreateBoardPage> {
   final int _prtnum = 1;
   int _prtadd = 1;
 
-  final List<String> _dropDownitems = ['Job Fair', 'Event', 'Hackaton', 'Game Jam'];
+  final List<String> _dropDownitems = ['Job Fair', 'Event', 'Hackaton', 'Game Jam', 'Post', 'Article'];
   String selectedItem = 'Job Fair';
 
   final TextEditingController _titlecont = TextEditingController();
@@ -28,12 +28,44 @@ class _CreateCardWidgetState extends State<CreateBoardPage> {
       resizeToAvoidBottomInset: false,
       body: ListView(
         children: <Widget>[
-          const Center(
-            child: Text(
-              'Create your Board',
-              style: TextStyle(fontSize: 30, fontFamily: 'Albert'),
-            ),
-          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+            child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CircleAvatar(backgroundImage: AssetImage('assets/images/app_icons/usericon.png'), radius: 35,),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '@azimuth',
+                    style: TextStyle(fontSize: 18, fontFamily: 'Albert'),
+                  ),
+                  Align(
+                      alignment: const Alignment(0.9, 0),
+                      child: Theme(
+                        data: Theme.of(context).copyWith(
+                          canvasColor: Colors.white,
+                        ),
+                        child: DropdownButton<String>(
+                            value: selectedItem,
+                            items: _dropDownitems
+                                .map((e) => DropdownMenuItem<String>(
+                              value: e,
+                              child: Text(e, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                            ))
+                                .toList(),
+                            onChanged: (e) {
+                              setState(() {
+                                selectedItem = e!;
+                              });
+                            }),
+                      )),
+                ],
+              ),
+            ],
+          )),
           const SizedBox(height: 25),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
@@ -55,26 +87,6 @@ class _CreateCardWidgetState extends State<CreateBoardPage> {
                   hintText: 'Short Description', border: OutlineInputBorder()),
             ),
           ),
-          Align(
-            alignment: const Alignment(0.9, 0),
-            child: Theme(
-              data: Theme.of(context).copyWith(
-                canvasColor: _cardcolor,
-              ),
-              child: DropdownButton<String>(
-              value: selectedItem,
-                items: _dropDownitems
-                    .map((e) => DropdownMenuItem<String>(
-                          value: e,
-                          child: Text(e),
-                        ))
-                    .toList(),
-                onChanged: (e) {
-                  setState(() {
-                    selectedItem = e!;
-                  });
-                }),
-          )),
           buildParty(),
           Align(
             alignment: const Alignment(-0.9, 0),

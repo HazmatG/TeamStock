@@ -6,7 +6,7 @@ TeamStock is a online recruiting app that connects unemployed but inspired speci
 Firebase Flutter, GetX
 ## Images
 <p float="left" align="middle">
-<img src="templateimages/sc_1.png" width="240" height="460">
+<img src="templateimages/photo_2024-09-30_10-33-29.jpg" width="240" height="460">
 <img src="templateimages/sc_2.png" width="240" height="460">
 <img src="templateimages/sc_5.png" width="240" height="460">
 </p>
